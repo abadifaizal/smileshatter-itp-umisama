@@ -3,15 +3,13 @@ import cv2
 def detect(cascadePath):
 
 	ESC_KEY = 27
-	INTERVAL = 33
 	FRAME_RATE = 30
+	INTERVAL = int(1000 / FRAME_RATE)
 
-	ORG_WINDOW_NAME = "org"
-	GAUSSIAN_WINDOW_NAME = "gaussian"
+	ORG_WINDOW_NAME = "Press Esc to exit"
 
 	DEVICE_ID = 0
 
-	white = (0, 0, 255)
 
 	# image = cv2.imread(imagePath)
 	# image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -21,7 +19,7 @@ def detect(cascadePath):
 	end_flag, c_frame = cap.read()
 	height, width, channels = c_frame.shape
 
-	cv2.namedWindow(ORG_WINDOW_NAME)
+	cv2.namedWindow(ORG_WINDOW_NAME, cv2.WINDOW_KEEPRATIO | cv2.WINDOW_NORMAL)
 
 	cascade = cv2.CascadeClassifier(cascadePath)
 
@@ -29,7 +27,7 @@ def detect(cascadePath):
 
 		image = c_frame
 		image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-		face_list = cascade.detectMultiScale(image_gray, minSize=(100, 100))
+		face_list = cascade.detectMultiScale(image_gray, minNeighbors=6, minSize=(20, 20))
 
 		for (x,y,w,h) in face_list:
 			color = (0, 0, 255)
@@ -48,4 +46,4 @@ def detect(cascadePath):
 	cap.release()
 
 
-detect("cascade.xml")
+detect("../cascades/cascade.xml")

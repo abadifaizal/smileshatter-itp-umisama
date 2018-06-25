@@ -1,5 +1,11 @@
 # スマイルシャッター - IT Project 2018
 
+## Branch - CAT
+### 猫の顔認識  
+reference : https://qiita.com/wellflat/items/c6ffae99be35cecc5680
+
+あとウェブカメラ使ってリアルタイムでやるようにしてます。(cat_detect_realtime.py)
+
 ## 5W1H
 ### Why: なんのためにやるのか？
 自分だけ盛れた写真を撮るアプリの提供
