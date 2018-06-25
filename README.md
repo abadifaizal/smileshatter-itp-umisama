@@ -6,6 +6,10 @@ reference : https://qiita.com/wellflat/items/c6ffae99be35cecc5680
 
 あとウェブカメラ使ってリアルタイムでやるようにしてます。(cat_detect_realtime.py)
 
+### Pipenv
+pipenv使ってるんで  
+`git clone`して`pip install pipenv`で`pipenv install`すると幸せになれます(numpyとopencvしか入れないけど)
+
 ## 5W1H
 ### Why: なんのためにやるのか？
 自分だけ盛れた写真を撮るアプリの提供
